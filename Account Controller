@@ -1,3 +1,5 @@
+// Mercatus Implemenation for the Payable Voucher and Payable voucher line CRUD Operation
+// Controller for the Visual force Page in the Implementation
 public class CreatePayableVoucherLineCtrl {
     
     public String accId                                                         { get; set; }
