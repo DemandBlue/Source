@@ -1,0 +1,58 @@
+@isTest
+private class CreatePayableVoucherLineCtrl_Test {
+    
+    @testSetup static void setup() {
+        
+        Account a = new Account( Name = 'A1' );
+        insert a;
+        
+        List<Payable_Voucher__c> lstPayableVoucher = new List<Payable_Voucher__c>{
+            new Payable_Voucher__c( Name = 'PV1', Vendor__c = a.Id ),
+            new Payable_Voucher__c( Name = 'PV2', Vendor__c = a.Id )
+        };
+        insert lstPayableVoucher;
+        
+        List<Payable_Voucher_Line__c> lstPayableVoucherLine = new List<Payable_Voucher_Line__c>{
+            new Payable_Voucher_Line__c( Name = 'PVL1', Payable_Voucher__c = lstPayableVoucher[0].Id ),
+            new Payable_Voucher_Line__c( Name = 'PVL2', Payable_Voucher__c = lstPayableVoucher[1].Id )
+        };
+        insert lstPayableVoucherLine;
+    }
+    
+    @isTest static void test() {
+        
+        List<Account> lstAccount = [SELECT Id FROM Account LIMIT 1];
+        
+        if( !lstAccount.isEmpty() ){
+            
+            CreatePayableVoucherLineCtrl obj = new CreatePayableVoucherLineCtrl(new ApexPages.StandardController(lstAccount[0]));
+    
+            List<Payable_Voucher__c> lstPayableVoucher = [SELECT Id FROM Payable_Voucher__c];
+            obj.getPayableVouchers();
+            System.assertEquals(obj.getPayableVouchers().size(), lstPayableVoucher.size());
+            obj.getPayableVoucherLen();
+            System.assertEquals(obj.getPayableVouchers().size(), obj.getPayableVoucherLen());
+            
+            obj.payableVoucher = new Payable_Voucher__c( Name = 'PV3' );
+            obj.createPV();
+            lstPayableVoucher = [SELECT Name FROM Payable_Voucher__c WHERE Name = 'PV3'];
+            System.assertEquals('PV3', lstPayableVoucher[0].Name);
+            
+            obj.payableVoucherLine.Name = 'PVL3';
+            obj.addPVL();
+            obj.createPVL();
+            List<Payable_Voucher_Line__c> lstPayableVoucherLine = [SELECT Name FROM Payable_Voucher_Line__c WHERE Name = 'PVL3'];
+            System.assertEquals('PVL3', lstPayableVoucherLine[0].Name);
+            
+            obj.editPV();
+            obj.cancelPV(); 
+            obj.editPVL();
+            obj.cancelPVL();
+            lstPayableVoucherLine = [SELECT Name FROM Payable_Voucher_Line__c WHERE Name = 'PVL1'];
+            obj.payableVoucherLineId = lstPayableVoucherLine[0].Id;
+            obj.editPVL();
+            obj.savePVL();   
+            obj.del();
+        }
+    }
+}
