@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The Line Items On Payable Voucher such as Mercatus Center Expense and Expense GLA</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Destination_Company__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Mercatus_Center_Expense__c,  &quot;Mercatus Center Expense&quot;, &quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Destination Company</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expense_GLA__c</fullName>
+        <externalId>false</externalId>
+        <label>Expense GLA</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>5600 - Supplies</fullName>
+                    <default>false</default>
+                    <label>5600 - Supplies</label>
+                </value>
+                <value>
+                    <fullName>5610 - Books/Subscription/Copyright</fullName>
+                    <default>false</default>
+                    <label>5610 - Books/Subscription/Copyright</label>
+                </value>
+                <value>
+                    <fullName>5620 - Shipping/Postage</fullName>
+                    <default>false</default>
+                    <label>5620 - Shipping/Postage</label>
+                </value>
+                <value>
+                    <fullName>5630 - Furniture/Equipment</fullName>
+                    <default>false</default>
+                    <label>5630 - Furniture/Equipment</label>
+                </value>
+                <value>
+                    <fullName>5640 - Purchased Software</fullName>
+                    <default>false</default>
+                    <label>5640 - Purchased Software</label>
+                </value>
+                <value>
+                    <fullName>5650 - Computer Accessories</fullName>
+                    <default>false</default>
+                    <label>5650 - Computer Accessories</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Income_Type_1042__c</fullName>
+        <externalId>false</externalId>
+        <label>Income Type 1042</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>16 – Scholarship or fellowship grants</fullName>
+                    <default>false</default>
+                    <label>16 – Scholarship or fellowship grants</label>
+                </value>
+                <value>
+                    <fullName>17 – Compensation for independent personal services</fullName>
+                    <default>false</default>
+                    <label>17 – Compensation for independent personal services</label>
+                </value>
+                <value>
+                    <fullName>19 – Compensation for teaching</fullName>
+                    <default>false</default>
+                    <label>19 – Compensation for teaching</label>
+                </value>
+                <value>
+                    <fullName>20 – Compensation during studying and training</fullName>
+                    <default>false</default>
+                    <label>20 – Compensation during studying and training</label>
+                </value>
+                <value>
+                    <fullName>23 – Other Income</fullName>
+                    <default>false</default>
+                    <label>23 – Other Income</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mercatus_Center_Expense__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mercatus Center Expense</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mercatus_Center_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Mercatus Center Value</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payable_Invoice_Expense_Line_Item__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Payable Invoice Expense Line Item</label>
+        <referenceTo>c2g__codaPurchaseInvoiceExpenseLineItem__c</referenceTo>
+        <relationshipLabel>Payable Voucher Lines</relationshipLabel>
+        <relationshipName>Payable_Voucher_Lines</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payable_Voucher__c</fullName>
+        <externalId>false</externalId>
+        <label>Payable Voucher</label>
+        <referenceTo>Payable_Voucher__c</referenceTo>
+        <relationshipLabel>Payable Voucher Lines</relationshipLabel>
+        <relationshipName>Payable_Voucher_Lines</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Voucher_Line_Des__c</fullName>
+        <externalId>false</externalId>
+        <label>Voucher Line Description</label>
+        <length>130768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <label>Payable Voucher Line</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Payable Voucher Line Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Payable Voucher Lines</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
